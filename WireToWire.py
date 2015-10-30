@@ -23,6 +23,7 @@ class WireToWire( Model ):
     )
     s.wire2 = Wire( 1 )
     s.connect( s.wire2, s.wire1 )
+    s.connect( s.out,   s.wire2 )
 
   # Line tracing
 
