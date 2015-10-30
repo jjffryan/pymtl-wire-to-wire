@@ -12,17 +12,18 @@ class WireToWire( Model ):
 
   def __init__( s ):
 
-    s.in_ = InPort  ( 1 )
-    s.out = OutPort ( 1 )
+    s.in_ = InPort  ( 2 )
+    s.out = OutPort ( 2 )
 
-    s.wire1 = Wire( 1 )
-    s.register = m = Reg( dtype = 1 )
+    s.wire1 = Wire( 2 )
+    s.register = m = Reg( dtype = 2 )
     s.connect_pairs(
       m.in_, s.in_,
       m.out, s.wire1,
     )
-    s.wire2 = Wire( 1 )
-    s.connect( s.wire2, s.wire1 )
+    s.wire2 = Wire( 2 )
+    s.connect( s.wire2[0], s.wire1[0] )
+    s.connect( s.wire2[1], 0b1 )
     s.connect( s.out,   s.wire2 )
 
   # Line tracing
